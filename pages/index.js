@@ -2,8 +2,8 @@ import { useState } from "react";
 import Layout from "../components/layout";
 import Pokemon from "../components/pokemon";
 import Pagination from "../components/pagination";
-import { useRouter } from "next/router";
 import { paginate } from "../helpers/paginate";
+
 export default function Home({ results }) {
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 60;
@@ -14,7 +14,7 @@ export default function Home({ results }) {
   };
 
   return (
-    <Layout title={"Inicio"} description={"All pokemons, catch them all"}>
+    <Layout title={"Home"} description={"All pokemons, catch them all"}>
       <main className="bg-black home">
         <div className="flex">
           <div className="container">

@@ -30,15 +30,15 @@ function pokemon({ results }) {
               alt={name}
             />
             <div className="row">
-              {types.map((item) => (
-                <div className={`type ${item.type.name}`}>{item.type.name}</div>
+              {types.map((item, index) => (
+                <div key={index} className={`type ${item.type.name}`}>{item.type.name}</div>
               ))}
             </div>
             <div className={`description ${types[0].type.name}-desc`}>
               <div>
                 Abilities:
-                {abilities.map((item) => (
-                  <p>{item.ability.name}</p>
+                {abilities.map((item, index) => (
+                  <p key={index}>{item.ability.name}</p>
                 ))}
               </div>
               <div>
