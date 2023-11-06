@@ -2,25 +2,448 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  background-color: #232228;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.bg-black,.topnav{
+  
+  background-color: #232228;
+}
+
+.topnav{
+  border-bottom: 3px solid #F2C12E;
+  padding: 15px 20px ;
+}
+.topnav a{
+  text-decoration: none;
+  color: white;
+  padding: 0 20px ;
+  font-size: 1.5rem;
+}
+.container {
+  width: 80%;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid{
+  display: grid;
+  gap:15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr) ) ;
+}
+.home h1{
+  color: white;
+
+}
+/* buttons */
+.pokemon {
+  position: relative;
+  background: transparent;
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  outline-color: deeppink;
+  transition: filter 250ms;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  text-align: center;
+  
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  filter: blur(2px);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    hsl(248, 39%, 39%) 0%,
+    hsl(248, 39%, 49%) 8%,
+    hsl(248, 39%, 39%) 92%,
+    hsl(248, 39%, 29%) 100%
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  border-radius: 8px;
+  background: hsl(248, 53%, 58%);
+  padding: 15px 5px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.pokemon:hover {
+  filter: brightness(110%);
+}
+
+.pokemon:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pokemon:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pokemon:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.pokemon:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pokemon:focus:not(:focus-visible) {
+  outline: none;
+}
+/* pagination */
+.pagination{
+  margin: 1.5rem 0 3rem;
+}
+.pagination ul{
+  display: inline-flex;
+  gap: 15px;
+  list-style: none;
+}
+.pagination ul li a{
+  padding: 10px;
+  border: 1px solid rgb(244, 244, 244);
+  border-radius: 5px;
+  color: #fff;
+}
+.pagination ul li a:hover,
+.pagination ul li a.active{
+  border: 1px solid rgb(105, 10, 188);
+  background-color: rgb(105,10,188);
+  color: white;
+
+}
+/* pokemon */
+.card{
+  margin: 100px 0;
+  border-style: solid;
+  border-width: 3px;
+  box-shadow: 9px 18px 20px 4px #1e1d1d45;
+  width: fit-content;
+  background: rgb(65,62,61);
+  background: -moz-radial-gradient(circle, rgba(65,62,61,1) 0%, rgba(20,20,20,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(65,62,61,1) 0%, rgba(20,20,20,1) 100%);
+  background: radial-gradient(circle, rgba(65,62,61,1) 0%, rgba(20,20,20,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#413e3d",endColorstr="#141414",GradientType=1);
+  
+}
+.card .gen{
+  color: #1a1a1a;
+  padding: 15px 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+.card .body{
+  color: white;
+  padding: 15px 30px;
+}
+.card .body h1{
+  text-transform: uppercase;
+  font-weight: lighter;
+  margin-bottom: 0;
+}
+.card img{
+}
+.card .description{
+  /* border-top: 1px solid #F2C12E; */
+  margin-top: 1rem;
+  border-style: solid;
+  border-top-width: 1px;
+  border-left:0;
+  border-right: 0;
+  border-bottom: 0;
+  padding-top: 15px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
+}
+.row{
+  display: flex;
+  gap: 0.5rem;
+}
+.card .body p{
+  margin: 0;
+  font-size: 14px;
+text-transform: capitalize;
+}
+.card .description p{
+  margin: 0 10px;
+  font-size: 10px;
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+
+.type{
+  text-transform: capitalize;
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+.card .type.normal,
+.card .gen.normal{
+background-color: rgb(0, 90, 128);
+}
+.card .type.fighting,
+.card .gen.fighting{
+background-color: cadetblue;
+}
+.card .type.flying,
+.card .gen.flying{
+  background-color: lightblue;
+
+}
+.card .type.poison,
+.card .gen.poison{
+background-color: red;
+}
+.card .type.ground,
+.card .gen.ground{
+background-color: chocolate;
+}
+.card .type.rock,
+.card .gen.rock{
+background-color: gray;
+}
+.card .type.bug,
+.card .gen.bug{
+background-color: greenyellow;
+}
+.card .type.ghost,
+.card .gen.ghost{
+background-color: rgb(255, 0, 157)(96, 20, 20);
+}
+.card .type.steel,
+.card .gen.steel{
+background-color: rgb(63, 63, 63);
+}
+.card .type.fire,
+.card .gen.fire{
+background-color: rgb(255, 47, 0);
+}
+.card .type.water,
+.card .gen.water{
+background-color: aqua;
+}
+.card .type.grass,
+.card .gen.grass{
+background-color: green;
+}
+.card .type.electric,
+.card .gen.electric{
+background-color: #F2C12E;
+}
+.card .type.psychic,
+.card .gen.psychic{
+background-color: purple;
+}
+.card .type.ice,
+.card .gen.ice{
+background-color: blue;
+}
+.card .type.dragon,
+.card .gen.dragon{
+background-color: orangered;
+}
+.card .type.dark,
+.card .gen.dark{
+background-color: #1a1a1a;
+color: white;
+}
+.card .type.fairy,
+.card .gen.fairy{
+background-color: aquamarine;
+}
+.card .type.unknown,
+.card .gen.unknown{
+background-color: bisque;
+}
+.card .type.shadow,
+.card .gen.shadow{
+background-color: rgb(38, 15, 38);
+}
+
+/*  */
+.card.normal,
+.card .description.normal-desc{
+border-color: rgb(0, 90, 128);
+}
+.card.fighting,
+.card .description.fighting-desc{
+border-color: cadetblue;
+}
+.card.flying,
+.card .description.flying-desc{
+border-color: lightblue;
+
+}
+.card.poison,
+.card .description.poison-desc{
+border-color: red;
+}
+.card.ground,
+.card .description.ground-desc{
+border-color: chocolate;
+}
+.card.rock,
+.card .description.rock-desc{
+border-color: gray;
+}
+.card.bug,
+.card .description.bug-desc{
+border-color: greenyellow;
+}
+.card.ghost,
+.card .description.ghost-desc{
+border-color: rgb(255, 0, 157)(96, 20, 20);
+}
+.card.steel,
+.card .description.steel-desc{
+border-color: rgb(63, 63, 63);
+}
+.card.fire,
+.card .description.fire-desc{
+border-color: rgb(255, 47, 0);
+}
+.card.water,
+.card .description.water-desc{
+border-color: aqua;
+}
+.card.grass,
+.card .description.grass-desc{
+border-color: green;
+}
+.card.electric,
+.card .description.electric-desc{
+border-color: #F2C12E;
+}
+.card.psychic,
+.card .description.psychic-desc{
+border-color: purple;
+}
+.card.ice,
+.card .description.i-desc{
+border-color: blue;
+}
+.card.dragon,
+.card .description.dragon-desc{
+border-color: orangered;
+}
+.card.dark,
+.card .description.dark-desc{
+border-color: #1a1a1a;
+}
+.card.fairy,
+.card .description.fairy-desc{
+border-color: aquamarine;
+}
+.card.unknown,
+.card .description.unknown-desc{
+border-color: bisque;
+}
+.card.shadow,
+.card .description.shadow-desc{
+border-color: rgb(38, 15, 38);
+}
+
+.normal{
+  background-color: rgb(20, 97, 130);
+}
+.fighting{
+  background-color: rgb(44, 130, 133);
+}
+.flying{
+  background-color: rgb(85, 170, 199);
+}
+.poison{
+  background-color: rgb(173, 10, 10);
+}
+.ground{
+  background-color: rgb(130, 55, 2);
+}
+.rock{
+  background-color: rgb(83, 80, 80);
+}
+.bug{
+  background-color: rgb(128, 199, 21);
+}
+.ghost{
+  background-color: rgb(192, 0, 119)(96, 20, 20);
+}
+.steel{
+  background-color: rgb(58, 55, 55);
+}
+.fire{
+  background-color: rgb(211, 39, 0);
+}
+.water{
+  background-color: rgb(53, 218, 218);
+}
+.grass{
+  background-color: rgb(6, 107, 6);
+}
+.electric{
+  background-color:#FAD02C;
+}
+.psychic{
+  background-color: rgb(108, 1, 108);
+}
+.ice{
+  background-color: rgb(9, 9, 167);
+}
+.dragon{
+  background-color: rgb(196, 52, 0);
+}
+.dark{
+  background-color: #181818;
+}
+.fairy{
+  background-color: rgb(18, 222, 154);
+}
+.unknown{
+  background-color: rgb(209, 187, 162);
+}
+.shadow{
+  background-color: rgb(33, 13, 33);
 }
