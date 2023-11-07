@@ -17,5 +17,5 @@ Contiene un listado con paginación de los 1292 pokémon a través del consumo d
 ### Pokemon dinamic view
 Información del Pokémon seleccionado.
 <div style='display: block'>
-<img src="./assets/img/pikachu_card.png" alt="Pikachu card" title="pikachu card" width='200' >
+<img src="./assets/img/pikachu_card.png" alt="Pikachu card" title="pikachu card" width='350' >
 </div>
