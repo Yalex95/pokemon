@@ -1,6 +1,9 @@
 Projecto hecho con  [Next.js](https://nextjs.org/)
-
-## Ejecutar el servidor de desarrollo:
+## 1. Instalar los modulos de node
+```bash
+npm install
+```
+## 2. Ejecutar el servidor de desarrollo:
 
 ```bash
 npm run dev
