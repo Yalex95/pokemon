@@ -8,4 +8,9 @@ npm run dev
 yarn dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) desde tu navegador.
+Abre [http://localhost:3000](http://localhost:3000) desde tu navegador y listo.
+### Home view
+<img src="./assets/img/pokemon.png" alt="Home" title="Home">
+
+### Cards view
+<img src="https://github.com/Yalex95/pokemon/tree/main/assets/img/pikachu_card.png" alt="Pikachu card" title="pikachu card">
