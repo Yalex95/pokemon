@@ -159,7 +159,11 @@ body {
   border-style: solid;
   border-width: 3px;
   box-shadow: 9px 18px 20px 4px #1e1d1d45;
-  width: fit-content;
+  width:40%;
+ 
+}
+.card .poke-container{
+  padding: 15px 30px;
   background: rgb(65,62,61);
   background: -moz-radial-gradient(circle, rgba(65,62,61,1) 0%, rgba(20,20,20,1) 100%);
   background: -webkit-radial-gradient(circle, rgba(65,62,61,1) 0%, rgba(20,20,20,1) 100%);
@@ -177,7 +181,8 @@ body {
 }
 .card .body{
   color: white;
-  padding: 15px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
 }
 .card .body h1{
   text-transform: uppercase;
@@ -187,20 +192,24 @@ body {
 .card img{
 }
 .card .description{
-  /* border-top: 1px solid #F2C12E; */
-  margin-top: 1rem;
+  background-color: #1a1a1a;
+  padding: 15px 30px;
   border-style: solid;
-  border-top-width: 1px;
-  border-left:0;
+  border-left-width: 2px;
+  border-top:0;
   border-right: 0;
   border-bottom: 0;
   padding-top: 15px;
   color: #fff;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+
 
 }
+.card .description .data{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+}
 .row{
+  margin-top: 15px;
   display: flex;
   gap: 0.5rem;
 }
@@ -449,4 +458,12 @@ border-color: rgb(38, 15, 38);
 }
 .disabled{
   display: none;
+}
+.locations{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px , 1fr));
+}
+.locations p{
+  font-size: 10px !important;
+  margin: 5px 0 !important;
 }

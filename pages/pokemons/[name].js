@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Layout from "../../components/layout";
 
-function pokemon({ results }) {
+function pokemon({ results,location }) {
   const {
     id,
     sprites,
@@ -21,6 +21,7 @@ function pokemon({ results }) {
             <p>N.° {id}</p>
           </div>
           <div className="body">
+            <div className="poke-container">
             <h1>{name}</h1>
             <p>Species: {species.name}</p>
             <Image
@@ -34,7 +35,9 @@ function pokemon({ results }) {
                 <div key={index} className={`type ${item.type.name}`}>{item.type.name}</div>
               ))}
             </div>
+            </div>
             <div className={`description ${types[0].type.name}-desc`}>
+              <div className="data">
               <div>
                 Abilities:
                 {abilities.map((item, index) => (
@@ -42,11 +45,22 @@ function pokemon({ results }) {
                 ))}
               </div>
               <div>
-                <p>Height: {height}</p>
+              Height:<p> {height}</p>
+              Weight:  <p>{weight}</p>
               </div>
+              </div>
+            <div className="location">
+                  
               <div>
-                <p>Weight: {weight}</p>
+                Locations:
+                <div className="locations">
+                {location.map((item, index) => (
+                  <p key={index}>{item.location_area.name}</p>
+                ))}
+                </div>
+                
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -73,9 +87,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { name } }) {
   const respond = await fetch(`${process.env.API_URL}/pokemon/${name}`);
   const results = await respond.json();
+  const locationsPoke = await fetch(results.location_area_encounters)
+  const location = await locationsPoke.json();
   return {
     props: {
       results,
+      location
     },
   };
 }
